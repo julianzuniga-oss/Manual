@@ -16,6 +16,7 @@
         background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         padding: 20px;
         line-height: 1.6;
+        overflow-x: hidden;
     }
     
     .container {
@@ -369,7 +370,7 @@
     }
     
     .badge-container.scanning .badge {
-        transform: translateX(30px);
+        transform: translateX(20px);
     }
     
     .phone-container {
@@ -545,24 +546,241 @@
     }
     
     @media (max-width: 768px) {
+        body {
+            padding: 10px;
+        }
+        
         .content {
-            padding: 20px;
+            padding: 20px 15px;
         }
         
         .header {
-            padding: 30px 20px;
+            padding: 25px 15px;
+        }
+        
+        .logo-container {
+            flex-direction: column;
+            gap: 10px;
+            padding: 12px 20px;
+        }
+        
+        .logo {
+            height: 40px;
         }
         
         .header h1 {
-            font-size: 24px;
+            font-size: 22px;
+        }
+        
+        .header p {
+            font-size: 14px;
         }
         
         .section-title {
-            font-size: 20px;
+            font-size: 18px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+        }
+        
+        .icon {
+            font-size: 24px;
+        }
+        
+        .simulation-container {
+            padding: 20px 15px;
+        }
+        
+        .simulation-title {
+            font-size: 18px;
+            margin-bottom: 20px;
         }
         
         .simulation-box {
-            gap: 20px;
+            gap: 30px;
+            min-height: 350px;
+            flex-direction: column;
+        }
+        
+        .badge {
+            width: 180px;
+            padding: 15px;
+        }
+        
+        .badge-header {
+            font-size: 11px;
+            padding: 6px;
+        }
+        
+        .badge-photo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 12px;
+        }
+        
+        .person-icon {
+            font-size: 40px;
+        }
+        
+        .badge-name {
+            font-size: 15px;
+        }
+        
+        .badge-role {
+            font-size: 11px;
+        }
+        
+        .nfc-sticker {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .nfc-icon {
+            font-size: 20px;
+        }
+        
+        .phone {
+            width: 160px;
+            height: 320px;
+        }
+        
+        .screen-icon {
+            font-size: 40px;
+        }
+        
+        .screen-text {
+            font-size: 14px;
+        }
+        
+        .screen-subtext {
+            font-size: 11px;
+        }
+        
+        .simulation-status {
+            font-size: 14px;
+            padding: 12px;
+        }
+        
+        .sim-button {
+            font-size: 15px;
+            padding: 12px 25px;
+        }
+        
+        .step-card {
+            padding: 15px;
+        }
+        
+        .step-number {
+            width: 26px;
+            height: 26px;
+            line-height: 26px;
+            font-size: 14px;
+        }
+        
+        .step-title {
+            font-size: 16px;
+        }
+        
+        .step-description {
+            font-size: 14px;
+        }
+        
+        .status-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        
+        .status-card {
+            padding: 15px;
+        }
+        
+        .status-icon {
+            font-size: 32px;
+        }
+        
+        .status-title {
+            font-size: 15px;
+        }
+        
+        .status-desc {
+            font-size: 13px;
+        }
+        
+        .alert-box, .info-box, .checklist {
+            padding: 12px;
+            font-size: 14px;
+        }
+        
+        .checklist-item {
+            font-size: 14px;
+        }
+        
+        .checklist-item::before {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 12px;
+        }
+        
+        .footer {
+            padding: 20px 15px;
+            font-size: 12px;
+        }
+        
+        .contact-info {
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .contact-item {
+            font-size: 13px;
+        }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .container {
+            max-width: 750px;
+        }
+        
+        .content {
+            padding: 35px;
+        }
+        
+        .simulation-box {
+            gap: 35px;
+        }
+        
+        .badge {
+            width: 190px;
+        }
+        
+        .phone {
+            width: 170px;
+            height: 340px;
+        }
+    }
+    
+    @media (min-width: 1025px) {
+        .container {
+            max-width: 900px;
+        }
+        
+        .simulation-box {
+            flex-direction: row;
+        }
+        
+        .badge-container.scanning .badge {
+            transform: translateX(30px);
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .header h1 {
+            font-size: 20px;
+        }
+        
+        .logo {
+            height: 35px;
         }
         
         .badge {
@@ -570,8 +788,12 @@
         }
         
         .phone {
-            width: 150px;
-            height: 300px;
+            width: 140px;
+            height: 280px;
+        }
+        
+        .section-title {
+            font-size: 16px;
         }
     }
 </style>
