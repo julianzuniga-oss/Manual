@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual de Acreditación - Staff RNP Cali 2026</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        padding: 20px;
+        line-height: 1.6;
+    }
+    
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+    }
+    
+    .header {
+        background: linear-gradient(135deg, #103960 0%, #1a5280 100%);
+        padding: 40px;
+        text-align: center;
+        color: white;
+    }
+    
+    .logo-container {
+        background: white;
+        border-radius: 15px;
+        display: inline-flex;
+        align-items: center;
+        gap: 20px;
+        padding: 15px 30px;
+        margin-bottom: 20px;
+    }
+    
+    .logo {
+        height: 50px;
+        width: auto;
+    }
+    
+    .header h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+    
+    .header p {
+        font-size: 16px;
+        opacity: 0.9;
+    }
+    
+    .content {
+        padding: 40px;
+    }
+    
+    .section {
+        margin-bottom: 40px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+        color: #103960;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #6adb48;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .icon {
+        font-size: 28px;
+    }
+    
+    .step-card {
+        background: #f8f9fa;
+        border-left: 4px solid #1a5280;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        transition: transform 0.2s;
+    }
+    
+    .step-card:hover {
+        transform: translateX(5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .step-number {
+        display: inline-block;
+        background: #1a5280;
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 30px;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+    
+    .step-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #103960;
+        margin-bottom: 10px;
+    }
+    
+    .step-description {
+        color: #555;
+        line-height: 1.8;
+    }
+    
+    .status-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .status-card {
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        border: 2px solid;
+    }
+    
+    .status-success {
+        background: rgba(106, 219, 72, 0.1);
+        border-color: #6adb48;
+    }
+    
+    .status-warning {
+        background: rgba(255, 165, 0, 0.1);
+        border-color: #ffa500;
+    }
+    
+    .status-error {
+        background: rgba(252, 0, 0, 0.1);
+        border-color: #fc0000;
+    }
+    
+    .status-icon {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+    
+    .status-title {
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+    
+    .status-desc {
+        font-size: 14px;
+        color: #666;
+    }
+    
+    .alert-box {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+    
+    .alert-title {
+        font-weight: 600;
+        color: #856404;
+        margin-bottom: 5px;
+    }
+    
+    .alert-text {
+        color: #856404;
+    }
+    
+    .info-box {
+        background: #d1ecf1;
+        border-left: 4px solid #17a2b8;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+    
+    .info-title {
+        font-weight: 600;
+        color: #0c5460;
+        margin-bottom: 5px;
+    }
+    
+    .info-text {
+        color: #0c5460;
+    }
+    
+    .checklist {
+        background: #e8f5e9;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .checklist-item {
+        padding: 10px;
+        margin: 5px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .checklist-item::before {
+        content: "✓";
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background: #6adb48;
+        color: white;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 24px;
+        font-weight: bold;
+    }
+    
+    .footer {
+        background: #f8f9fa;
+        padding: 30px;
+        text-align: center;
+        color: #666;
+        border-top: 1px solid #e0e0e0;
+    }
+    
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-top: 15px;
+    }
+    
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    @media print {
+        body {
+            background: white;
+        }
+        .container {
+            box-shadow: none;
+        }
+        .step-card:hover {
+            transform: none;
+        }
+    }
+    
+    .simulation-container {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 15px;
+        padding: 30px;
+        margin: 30px 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .simulation-title {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        color: #103960;
+        margin-bottom: 25px;
+    }
+    
+    .simulation-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        min-height: 400px;
+        position: relative;
+        flex-wrap: wrap;
+    }
+    
+    .badge-container {
+        position: relative;
+    }
+    
+    .badge {
+        width: 200px;
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        border: 3px solid #1a5280;
+        text-align: center;
+        transition: all 0.5s ease;
+    }
+    
+    .badge-header {
+        background: linear-gradient(135deg, #103960 0%, #1a5280 100%);
+        color: white;
+        padding: 8px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+    
+    .badge-photo {
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+        border-radius: 50%;
+        margin: 0 auto 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 3px solid #1a5280;
+    }
+    
+    .person-icon {
+        font-size: 50px;
+    }
+    
+    .badge-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: #103960;
+        margin-bottom: 5px;
+    }
+    
+    .badge-role {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 15px;
+    }
+    
+    .nfc-sticker {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #6adb48 0%, #4CAF50 100%);
+        border-radius: 50%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 3px 10px rgba(106, 219, 72, 0.4);
+    }
+    
+    .nfc-icon {
+        font-size: 24px;
+        z-index: 2;
+    }
+    
+    .nfc-waves {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    
+    .wave {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 2px solid #6adb48;
+        border-radius: 50%;
+        opacity: 0;
+    }
+    
+    .badge-container.scanning .wave {
+        animation: wave-pulse 1.5s ease-out infinite;
+    }
+    
+    .wave:nth-child(2) {
+        animation-delay: 0.5s;
+    }
+    
+    .wave:nth-child(3) {
+        animation-delay: 1s;
+    }
+    
+    @keyframes wave-pulse {
+        0% {
+            transform: scale(1);
+            opacity: 0.6;
+        }
+        100% {
+            transform: scale(2.5);
+            opacity: 0;
+        }
+    }
+    
+    .badge-container.scanning .badge {
+        transform: translateX(30px);
+    }
+    
+    .phone-container {
+        position: relative;
+    }
+    
+    .phone {
+        width: 180px;
+        height: 360px;
+        background: #1a1a1a;
+        border-radius: 30px;
+        padding: 12px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+    
+    .phone-notch {
+        width: 100px;
+        height: 25px;
+        background: #1a1a1a;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 0 0 15px 15px;
+        z-index: 2;
+    }
+    
+    .phone-screen {
+        width: 100%;
+        height: 100%;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .screen-content {
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .screen-icon {
+        font-size: 48px;
+        margin-bottom: 15px;
+        animation: float 2s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+    
+    .screen-text {
+        font-size: 16px;
+        font-weight: 600;
+        color: #103960;
+        margin-bottom: 5px;
+    }
+    
+    .screen-subtext {
+        font-size: 12px;
+        color: #666;
+    }
+    
+    .nfc-area {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(106, 219, 72, 0.2);
+        color: #6adb48;
+        font-size: 10px;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 10px;
+        border: 1px solid #6adb48;
+    }
+    
+    .phone-container.reading .nfc-area {
+        animation: nfc-glow 0.5s ease-in-out 3;
+    }
+    
+    @keyframes nfc-glow {
+        0%, 100% {
+            box-shadow: 0 0 5px rgba(106, 219, 72, 0.5);
+        }
+        50% {
+            box-shadow: 0 0 20px rgba(106, 219, 72, 1);
+        }
+    }
+    
+    .simulation-status {
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+        background: white;
+        border-radius: 10px;
+        font-weight: 500;
+        color: #103960;
+        margin-top: 20px;
+    }
+    
+    .sim-button {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin: 20px auto 0;
+        padding: 15px 30px;
+        background: linear-gradient(135deg, #103960 0%, #1a5280 100%);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(16, 57, 96, 0.3);
+    }
+    
+    .sim-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 7px 20px rgba(16, 57, 96, 0.4);
+    }
+    
+    .sim-button:active {
+        transform: translateY(0);
+    }
+    
+    .sim-button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+    
+    @media (max-width: 768px) {
+        .content {
+            padding: 20px;
+        }
+        
+        .header {
+            padding: 30px 20px;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+        }
+        
+        .simulation-box {
+            gap: 20px;
+        }
+        
+        .badge {
+            width: 160px;
+        }
+        
+        .phone {
+            width: 150px;
+            height: 300px;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="logo-container">
+            <img src="https://lh3.googleusercontent.com/d/16ocCF8qblqOzR362596hLM25H5S9RB-u" alt="Logo RNP" class="logo">
+            <img src="https://lh3.googleusercontent.com/d/1Lt2PBkjRI71CNEQFmlqimWc4l4Sdb3ie" alt="Logo 2" class="logo">
+        </div>
+        <h1>Manual de Acreditación</h1>
+        <p>Sistema NFC - RNP Cali 2026</p>
+    </div>
+    
+    <div class="content">
+        <!-- INTRODUCCIÓN -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">📋</span>
+                Introducción
+            </div>
+            <p>Bienvenido al sistema de acreditación digital mediante NFC para el evento RNP Cali 2026. Este manual te guiará paso a paso en el proceso de validación de asistentes utilizando stickers NFC y dispositivos móviles autorizados.</p>
+        </div>
+        
+        <!-- ANTES DE COMENZAR -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">✅</span>
+                Antes de Comenzar
+            </div>
+            
+            <div class="checklist">
+                <div class="checklist-item">Verifica que tu dispositivo esté autorizado en el sistema</div>
+                <div class="checklist-item">Asegúrate de tener conexión a internet estable</div>
+                <div class="checklist-item">Confirma que el NFC de tu dispositivo esté activado</div>
+                <div class="checklist-item">Ten a mano el cronograma de eventos del día</div>
+            </div>
+            
+            <div class="alert-box">
+                <div class="alert-title">⚠️ Importante</div>
+                <div class="alert-text">Solo los dispositivos previamente autorizados en la hoja "DispositivosPermitidos" pueden realizar acreditaciones. Si tu dispositivo no está autorizado, contacta al administrador del sistema.</div>
+            </div>
+        </div>
+        
+        <!-- PROCESO DE ACREDITACIÓN -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">📱</span>
+                Proceso de Acreditación
+            </div>
+            
+            <!-- SIMULACIÓN INTERACTIVA -->
+            <div class="simulation-container">
+                <div class="simulation-title">🎬 Simulación Interactiva</div>
+                <div class="simulation-box">
+                    <div class="badge-container" id="badge">
+                        <div class="badge">
+                            <div class="badge-header">RNP CALI 2026</div>
+                            <div class="badge-photo">
+                                <div class="person-icon">👤</div>
+                            </div>
+                            <div class="badge-name">Juan Pérez</div>
+                            <div class="badge-role">Asistente</div>
+                            <div class="nfc-sticker">
+                                <div class="nfc-icon">📡</div>
+                                <div class="nfc-waves">
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="phone-container" id="phone">
+                        <div class="phone">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <div class="screen-content" id="screenContent">
+                                    <div class="screen-icon">📱</div>
+                                    <div class="screen-text">Acerca la escarapela</div>
+                                    <div class="screen-subtext">NFC activado</div>
+                                </div>
+                            </div>
+                            <div class="nfc-area">NFC</div>
+                        </div>
+                    </div>
+                    
+                    <div class="simulation-status" id="simStatus">
+                        Haz clic en "Iniciar Simulación" para ver el proceso
+                    </div>
+                </div>
+                
+                <button class="sim-button" id="simButton" onclick="startSimulation()">
+                    ▶️ Iniciar Simulación
+                </button>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">1</span>
+                    Recibe al Asistente
+                </div>
+                <div class="step-description">
+                    Saluda cordialmente al asistente y solicita que presente su escarapela con el sticker NFC de identificación. Verifica visualmente que el sticker esté en buenas condiciones.
+                </div>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">2</span>
+                    Acerca la Escarapela al Dispositivo
+                </div>
+                <div class="step-description">
+                    Pide al asistente que acerque su escarapela (con el sticker NFC) a la parte posterior de tu dispositivo móvil, donde está el área NFC. La lectura es instantánea. Mantén la escarapela cerca del dispositivo por 1-2 segundos.
+                </div>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">3</span>
+                    Espera la Validación
+                </div>
+                <div class="step-description">
+                    El sistema procesará automáticamente la información. Verás una pantalla de carga mientras se valida la acreditación contra el cronograma activo y la base de datos.
+                </div>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">4</span>
+                    Interpreta el Resultado
+                </div>
+                <div class="step-description">
+                    La pantalla mostrará uno de los estados posibles (ver sección siguiente). Comunica el resultado al asistente de manera clara y profesional.
+                </div>
+            </div>
+        </div>
+        
+        <!-- ESTADOS DEL SISTEMA -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🚦</span>
+                Estados del Sistema
+            </div>
+            
+            <div class="status-grid">
+                <div class="status-card status-success">
+                    <div class="status-icon">✓</div>
+                    <div class="status-title">Acreditación Exitosa</div>
+                    <div class="status-desc">El asistente fue acreditado correctamente para el evento activo</div>
+                </div>
+                
+                <div class="status-card status-warning">
+                    <div class="status-icon">⚠</div>
+                    <div class="status-title">Ya Acreditado</div>
+                    <div class="status-desc">El asistente ya había sido acreditado previamente para este evento</div>
+                </div>
+                
+                <div class="status-card status-warning">
+                    <div class="status-icon">⏰</div>
+                    <div class="status-title">Llegada Tardía</div>
+                    <div class="status-desc">El asistente llegó después del horario establecido. Se muestra el tiempo de retraso</div>
+                </div>
+                
+                <div class="status-card status-error">
+                    <div class="status-icon">🚫</div>
+                    <div class="status-title">Dispositivo No Autorizado</div>
+                    <div class="status-desc">El dispositivo utilizado no está en la lista de autorizados</div>
+                </div>
+                
+                <div class="status-card status-error">
+                    <div class="status-icon">❌</div>
+                    <div class="status-title">NFC No Registrado</div>
+                    <div class="status-desc">El ID del sticker NFC no existe en la base de datos</div>
+                </div>
+                
+                <div class="status-card status-error">
+                    <div class="status-icon">🔄</div>
+                    <div class="status-title">Sin Evento Activo</div>
+                    <div class="status-desc">No hay ningún evento en curso en este momento</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CÓMO FUNCIONA -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">⚙️</span>
+                Cómo Funciona el Sistema
+            </div>
+            
+            <div class="info-box">
+                <div class="info-title">🕐 Validación por Horario</div>
+                <div class="info-text">El sistema consulta automáticamente el cronograma y determina qué evento está activo según la hora actual. Si el evento ya finalizó, calcula los minutos de retraso.</div>
+            </div>
+            
+            <div class="info-box">
+                <div class="info-title">🔒 Prevención de Duplicados</div>
+                <div class="info-text">El sistema detecta si un asistente ya fue acreditado para el evento actual, evitando registros duplicados y posibles fraudes.</div>
+            </div>
+            
+            <div class="info-box">
+                <div class="info-title">📊 Registro Automático</div>
+                <div class="info-text">Cada acreditación queda registrada en la hoja "logsRaw" con timestamp, ID del asociado, tipo de evento, dispositivo usado y estado de la acreditación.</div>
+            </div>
+        </div>
+        
+        <!-- SOLUCIÓN DE PROBLEMAS -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🔧</span>
+                Solución de Problemas
+            </div>
+            
+            <div class="step-card">
+                <div class="step-title">El NFC no lee el sticker</div>
+                <div class="step-description">
+                    • Verifica que el NFC esté activado en tu dispositivo<br>
+                    • Acerca más el sticker a la parte posterior del teléfono<br>
+                    • Retira cualquier funda gruesa que pueda interferir<br>
+                    • Prueba con diferentes ángulos de acercamiento
+                </div>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-title">Error de conexión al servidor</div>
+                <div class="step-description">
+                    • Verifica tu conexión a internet<br>
+                    • Intenta nuevamente en unos segundos<br>
+                    • Si persiste, usa tu conexión de datos móviles<br>
+                    • Reporta el problema al coordinador técnico
+                </div>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-title">Dispositivo no autorizado</div>
+                <div class="step-description">
+                    • Contacta inmediatamente al administrador del sistema<br>
+                    • No intentes usar otro dispositivo sin autorización<br>
+                    • Proporciona el modelo y User-Agent de tu dispositivo<br>
+                    • Espera a que sea agregado a la lista de autorizados
+                </div>
+            </div>
+        </div>
+        
+        <!-- MEJORES PRÁCTICAS -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">⭐</span>
+                Mejores Prácticas
+            </div>
+            
+            <div class="step-card">
+                <div class="step-title">🎯 Mantén la Eficiencia</div>
+                <div class="step-description">
+                    Realiza las acreditaciones de forma rápida pero cuidadosa. Un proceso ágil mejora la experiencia de los asistentes y evita congestiones.
+                </div>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-title">😊 Atención Personalizada</div>
+                <div class="step-description">
+                    Saluda a cada asistente por su nombre (visible después de la validación) y ofrece una experiencia amigable y profesional.
+                </div>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-title">📢 Comunicación Clara</div>
+                <div class="step-description">
+                    Explica claramente el resultado de la acreditación. Si hay algún problema, hazlo saber de manera cortés y ofrece soluciones.
+                </div>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-title">🔋 Mantén tu Dispositivo Listo</div>
+                <div class="step-description">
+                    Asegúrate de tener batería suficiente y conexión estable durante todo tu turno. Lleva un cargador portátil si es posible.
+                </div>
+            </div>
+        </div>
+        
+        <!-- PROTOCOLO DE SEGURIDAD -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🛡️</span>
+                Protocolo de Seguridad
+            </div>
+            
+            <div class="alert-box">
+                <div class="alert-title">🔐 Confidencialidad</div>
+                <div class="alert-text">La información de los asistentes es confidencial. No compartas datos personales, capturas de pantalla o información del sistema fuera del contexto del evento.</div>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-description">
+                    • Usa únicamente dispositivos autorizados<br>
+                    • No compartas tu acceso con terceros<br>
+                    • Reporta cualquier actividad sospechosa<br>
+                    • No intentes modificar o acceder al código del sistema<br>
+                    • Mantén tu dispositivo bajo supervisión en todo momento
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <strong>Sistema de Acreditación Digital - RNP Cali 2026</strong>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span>📧</span> soporte@rnpcali2026.com
+            </div>
+            <div class="contact-item">
+                <span>📱</span> +57 300 123 4567
+            </div>
+            <div class="contact-item">
+                <span>🌐</span> www.rnpcali2026.com
+            </div>
+        </div>
+        <p style="margin-top: 15px; font-size: 12px; color: #999;">
+            Versión 1.0 - Diciembre 2024
+        </p>
+    </div>
+</div>
+</body>
+</html>
