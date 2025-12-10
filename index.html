@@ -230,40 +230,6 @@
         font-weight: bold;
     }
     
-    .footer {
-        background: #f8f9fa;
-        padding: 30px;
-        text-align: center;
-        color: #666;
-        border-top: 1px solid #e0e0e0;
-    }
-    
-    .contact-info {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        flex-wrap: wrap;
-        margin-top: 15px;
-    }
-    
-    .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-    
-    @media print {
-        body {
-            background: white;
-        }
-        .container {
-            box-shadow: none;
-        }
-        .step-card:hover {
-            transform: none;
-        }
-    }
-    
     .simulation-container {
         background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         border-radius: 15px;
@@ -542,6 +508,40 @@
     .sim-button:disabled {
         opacity: 0.6;
         cursor: not-allowed;
+    }
+    
+    .footer {
+        background: #f8f9fa;
+        padding: 30px;
+        text-align: center;
+        color: #666;
+        border-top: 1px solid #e0e0e0;
+    }
+    
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-top: 15px;
+    }
+    
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    @media print {
+        body {
+            background: white;
+        }
+        .container {
+            box-shadow: none;
+        }
+        .step-card:hover {
+            transform: none;
+        }
     }
     
     @media (max-width: 768px) {
@@ -883,19 +883,106 @@
         <strong>Sistema de Acreditación Digital - RNP Cali 2026</strong>
         <div class="contact-info">
             <div class="contact-item">
-                <span>📧</span> rnp@aneiap.co
+                <span>📧</span> soporte@rnpcali2026.com
             </div>
             <div class="contact-item">
-                <span>📱</span> +57 320 731 4054
+                <span>📱</span> +57 300 123 4567
             </div>
             <div class="contact-item">
-                <span>🌐</span> https://sites.google.com/aneiap.co/sigeda/inicio
+                <span>🌐</span> www.rnpcali2026.com
             </div>
         </div>
         <p style="margin-top: 15px; font-size: 12px; color: #999;">
-            Versión 1.0 - Diciembre 2025
+            Versión 1.0 - Diciembre 2024
         </p>
     </div>
 </div>
+
+<script>
+    // Función de espera
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    
+    // Variable de control
+    let simulationRunning = false;
+    
+    // Función de simulación
+    async function startSimulation() {
+        if (simulationRunning) return;
+        
+        simulationRunning = true;
+        const button = document.getElementById('simButton');
+        const badge = document.getElementById('badge');
+        const phone = document.getElementById('phone');
+        const screenContent = document.getElementById('screenContent');
+        const status = document.getElementById('simStatus');
+        
+        button.disabled = true;
+        button.textContent = '⏳ Simulación en progreso...';
+        
+        // Paso 1: Preparación
+        status.textContent = 'Paso 1: Preparando dispositivo...';
+        await sleep(1000);
+        
+        // Paso 2: Acercando escarapela
+        status.textContent = 'Paso 2: Acercando escarapela al dispositivo...';
+        badge.classList.add('scanning');
+        phone.classList.add('reading');
+        await sleep(2000);
+        
+        // Paso 3: Leyendo NFC
+        screenContent.innerHTML = `
+            <div class="screen-icon">📡</div>
+            <div class="screen-text">Leyendo NFC...</div>
+            <div class="screen-subtext">Por favor espere</div>
+        `;
+        status.textContent = 'Paso 3: Leyendo información del sticker NFC...';
+        await sleep(2000);
+        
+        // Paso 4: Validando
+        screenContent.innerHTML = `
+            <div class="screen-icon">🔄</div>
+            <div class="screen-text">Validando...</div>
+            <div class="screen-subtext">Consultando base de datos</div>
+        `;
+        status.textContent = 'Paso 4: Validando con el servidor...';
+        await sleep(2000);
+        
+        // Paso 5: Resultado exitoso
+        screenContent.innerHTML = `
+            <div class="screen-icon">✓</div>
+            <div class="screen-text" style="color: #6adb48;">¡Éxito!</div>
+            <div class="screen-subtext">Juan Pérez acreditado</div>
+        `;
+        status.textContent = '✅ ¡Acreditación exitosa! El asistente puede ingresar.';
+        await sleep(3000);
+        
+        // Resetear
+        badge.classList.remove('scanning');
+        phone.classList.remove('reading');
+        screenContent.innerHTML = `
+            <div class="screen-icon">📱</div>
+            <div class="screen-text">Acerca la escarapela</div>
+            <div class="screen-subtext">NFC activado</div>
+        `;
+        status.textContent = 'Haz clic en "Iniciar Simulación" para ver el proceso nuevamente';
+        
+        button.disabled = false;
+        button.textContent = '▶️ Iniciar Simulación';
+        simulationRunning = false;
+    }
+    
+    // Event listener cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', function() {
+        const simButton = document.getElementById('simButton');
+        if (simButton) {
+            simButton.addEventListener('click', startSimulation);
+            console.log('Botón de simulación inicializado correctamente');
+        } else {
+            console.error('No se encontró el botón de simulación');
+        }
+    });
+</script>
 </body>
 </html>
